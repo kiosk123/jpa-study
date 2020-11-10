@@ -8,7 +8,7 @@ buildscript {
 }
 
 ext {
-    springVersion = '5.0.5.RELEASE'
+    //springVersion = '5.0.5.RELEASE'
 	hibernateVersion = '5.3.10.Final'
 	h2Version = '1.4.199' //사용할 h2 데이타베이스 버전과 일치해야함 
 	jpaVersion = '2.2'
@@ -46,10 +46,10 @@ subprojects {
 	}
 
 	dependencies {
-	    implementation "org.springframework:spring-core:${springVersion}"
-	    implementation "org.springframework:spring-context:${springVersion}"
-		implementation "org.springframework:spring-beans:${springVersion}"
-		implementation "org.springframework:spring-aspects:${springVersion}"
+	    //implementation "org.springframework:spring-core:${springVersion}"
+	    //implementation "org.springframework:spring-context:${springVersion}"
+		//implementation "org.springframework:spring-beans:${springVersion}"
+		//implementation "org.springframework:spring-aspects:${springVersion}"
 
 		//JPA
 		implementation "org.hibernate:hibernate-entitymanager:${hibernateVersion}"
