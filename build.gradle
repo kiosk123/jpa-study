@@ -1,0 +1,64 @@
+buildscript {
+	repositories {
+		mavenCentral()
+		jcenter()
+	}
+	dependencies {
+	}
+}
+
+ext {
+    springVersion = '5.0.5.RELEASE'
+	hibernateVersion = '5.3.10.Final'
+	h2Version = '1.4.199' //사용할 h2 데이타베이스 버전과 일치해야함 
+	jpaVersion = '2.2'
+}
+
+allprojects {}
+
+subprojects {
+	apply plugin: 'java'
+	apply plugin: 'eclipse'
+	apply plugin: 'application'
+
+	sourceCompatibility = "1.8"
+	targetCompatibility = "1.8"
+
+	[compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
+
+	task initSourceFolders {
+		sourceSets*.java.srcDirs*.each {
+			if( !it.exists() ) {
+				it.mkdirs()
+			}
+		}
+	 
+		sourceSets*.resources.srcDirs*.each {
+			if( !it.exists() ) {
+				it.mkdirs()
+			}
+		}
+	}
+	
+	repositories {
+		mavenCentral()
+		jcenter()
+	}
+
+	dependencies {
+	    implementation "org.springframework:spring-core:${springVersion}"
+	    implementation "org.springframework:spring-context:${springVersion}"
+		implementation "org.springframework:spring-beans:${springVersion}"
+		implementation "org.springframework:spring-aspects:${springVersion}"
+
+		//JPA
+		implementation "org.hibernate:hibernate-entitymanager:${hibernateVersion}"
+		implementation "com.h2database:h2:${h2Version}"
+		implementation 'javax.persistence:javax.persistence-api:${jpaVersion}'
+
+	    
+		//logging 설정 
+		implementation'ch.qos.logback:logback-classic:1.2.3'
+	    testImplementation 'junit:junit:4.13'
+	}
+}

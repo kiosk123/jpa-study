@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings version="2.2" 
+    xmlns="http://xmlns.jcp.org/xml/ns/persistence/orm">
+  
+  <named-query name="Member.count">
+      <query>select count(m) from Member m</query>
+  </named-query>
+  
+</entity-mappings>

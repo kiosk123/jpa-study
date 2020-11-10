@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings version="2.2" 
+    xmlns="http://xmlns.jcp.org/xml/ns/persistence/orm">
+  
+  <named-query name="Team.findByName">
+      <query>
+        <![CDATA[
+            select t
+            from Team t
+            where t.name = :name
+        ]]>
+      </query>
+  </named-query>
+  
+</entity-mappings>

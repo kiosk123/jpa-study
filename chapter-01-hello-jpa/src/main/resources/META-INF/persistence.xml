@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.2" 
+    xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd">
+
+	<persistence-unit name="hello">
+		<properties>
+			<property name="javax.persistence.jdbc.driver" value="org.h2.Driver" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:h2:tcp://localhost/~/test" />
+			<property name="javax.persistence.jdbc.user" value="sa" />
+			<property name="javax.persistence.jdbc.password" value="" />
+			
+			<!-- 하이버네이트 방언 설정 -->
+			<property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect" />
+			
+			<property name="hibernate.show_sql" value="true" />
+			<property name="hibernate.format_sql" value="true"/>
+			<property name="hibernate.use_sql_comments" value="true"/>
+			
+			<!-- 하이버네이트가 한번에 처리할 쿼리 갯수 -->
+			<!-- <property name="hibernate.jdbc.batch_size" value="10"/> -->
+			
+			<!-- 
+			         하이버네이트가 데이터베이스 스키마를 컨트롤함
+			    create - 애플리케이션 실행마다 기존 테이블 다 제거 후 테이블 생성
+			    create-drop - create와 같으나 종료시점에 테이블 DROP
+			    update - 기존 테이블과 데이터를 삭제하지 않고 테이블의 변경(추가된)부분만 반영
+			    validate - 엔티티와 테이블이 정상 매핑되었는지만 확인
+			    none - 사용하지 않음(기본값)
+			    
+			    * 주의사항 - 개인 개발에서는 써도 되는데 여러명이 쓰는 테스트나 운영서버는 되도록 직접 SQL로 처리
+			    1. 개발 초기 단계는 create 또는 update
+			    2. 테스트 서버는 update 또는 validate
+			    3. 스테이징과 운영 서버는 validate 또는 none
+			 -->
+			<!--<property name="hibernate.hbm2ddl.auto" value="create" /> -->
+		</properties>
+
+	</persistence-unit>
+</persistence>

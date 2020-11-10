@@ -1,0 +1,9 @@
+1. /META-INF/persistence.xml 설정
+
+2. 테스트 테이블
+
+create table MEMBER (
+   id bigint not null,
+   name varchar(255),
+   constraint MEMBER_PK primary key(id)
+)
