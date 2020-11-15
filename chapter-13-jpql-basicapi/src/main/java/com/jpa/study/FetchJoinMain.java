@@ -93,6 +93,7 @@ public class FetchJoinMain {
             em.createQuery("select m from Member m, Team t where m.team = t and m.age > 10 ", Member.class)
             .getResultList();
             
+
             /*
              * 페치 조인일때 컬렉션으로 인한 페이징 처리가 불가하기 때문에
              * 일대다 관계에서는 일반조인으로 데이터를 가져온 후 가져온 데이터의 컬렉션을 다시 조회하는데
@@ -102,6 +103,12 @@ public class FetchJoinMain {
              * 페치 조인 대상 컬렉션에 @BatchSize(size = 값)을 설정한다. 
              * 값은 1000이하의 값을 준다
              * 
+             *                                                   
+             * 컬렉션 데이터를 페이징 하기 위한 방법                
+             * XToOne 관계는 모두 페치 조인한다.                 
+             * 컬렉션은 지연 로딩으로 조회한다.                   
+             * 지연 로딩 성능 최적화를 위해 @BatchSize를 적용한다. 
+             * 이옵션을 적용하면 컬렉션이나 프록시 객체를 한번에 설정한 size만큼 In 쿼리로 조회한다.
              */
             em.clear();
             //@BatchSize 애너테이션 설정 하거나 global 세팅 후 쿼리 동작 확인해볼것
