@@ -72,7 +72,7 @@ public class BulkOperationMain {
             resultCount = em.createQuery("delete from Member m where m.name = 'older'")
                             .executeUpdate();
             System.out.println("deleted row : " + resultCount);
-            em.clear(); //벌크연산 처리 후 해야됨 - 그리고 위에있는 객체(준영속) 재사용하지 말고 다시 조회해야함
+            em.clear(); //벌크연산 처리 후 조회 해야됨 - 그리고 위에있는 객체(준영속) 재사용하지 말고 다시 조회해야함
             
             teamA = em.find(Team.class, teamA.getId()); //DB에 반영된 내용을 다시 가져옴
             teamA.getMembers().forEach(m -> System.out.println("================= " + m.getName()));
