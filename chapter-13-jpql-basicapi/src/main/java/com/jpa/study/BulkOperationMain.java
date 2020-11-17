@@ -59,7 +59,7 @@ public class BulkOperationMain {
             em.clear();
             
             
-            //update 벌크 쿼리 실행시 flush 자동 호출
+            //update 벌크 쿼리 실행시 insert가 반영됨(flush 자동 호출)
             int resultCount = em.createQuery("update Member m set m.name = 'older' where m.age > 30")
                                 .executeUpdate();
             System.out.println("effected row : " + resultCount);
