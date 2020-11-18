@@ -14,6 +14,6 @@ import javax.persistence.MappedSuperclass;
 public class BaseEntity {
     private String createBy;
     private LocalDateTime createTime;
-    private String lasyModified;
-    private LocalDateTime lasdModifiedDate;
+    private String lastModified;
+    private LocalDateTime lastModifiedDate;
 }
