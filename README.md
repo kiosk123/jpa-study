@@ -2,8 +2,16 @@
 
 JPA 정리
 * JPA 2.2
-* java 버전 1.8
+* java 버전 11
 * 하이버 네이트 5.3.10
+
+# 프로젝트 구성시 참고사항
+1. Exception in thread "main" java.lang.NoClassDefFoundError: javax/xml/bind/JAXBException 해결  
+자바 9버전 부터 JAXB는 별도의 모듈로 분리되어 JDK에 포함되지 않기 때문에 다음과 같이 그레이들에 의존성을 추가한다.
+```gradle
+implementation "jakarta.xml.bind:jakarta.xml.bind-api:2.3.2"
+implementation "org.glassfish.jaxb:jaxb-runtime:2.3.2"
+```
 
 
 # 챕터
