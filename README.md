@@ -15,7 +15,7 @@ implementation "org.glassfish.jaxb:jaxb-runtime:2.3.2"
 
 
 # 챕터
-1. hello-jpa 프로젝트 생성  
+1. hello-jpa 프로젝트 생성과 jpa 프로젝트 구성  
 
 
 
