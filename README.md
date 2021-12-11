@@ -6,6 +6,11 @@ JPA 정리
 * 하이버 네이트 5.3.10
 
 
+# 챕터
+1. hello-jpa 프로젝트 생성  
+
+
+
 ## 참고
  - CustomSqlFunction 호출 방법 - 챕터 13 CustomH2Dialect.java 참고
     - 호출한 SQL 함수가 구현되어 있는 데이터베이스의 방언을 상속한다.
