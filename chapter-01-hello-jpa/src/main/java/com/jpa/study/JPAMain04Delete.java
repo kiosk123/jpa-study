@@ -5,6 +5,9 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
+/**
+ * DELETE
+ */
 public class JPAMain04Delete {
 
     public static void main(String[] args) {

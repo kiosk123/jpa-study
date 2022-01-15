@@ -8,16 +8,16 @@ import javax.persistence.Persistence;
 public class JPAMain02ErrorHandling {
 
     public static void main(String[] args) {
-        
-EntityManagerFactory emf = Persistence.createEntityManagerFactory("hello");
-        
-        //트랜잭션당 하나씩 생성
+
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("hello");
+
+        // 트랜잭션당 하나씩 생성
         EntityManager em = emf.createEntityManager();
         EntityTransaction tx = em.getTransaction();
         try {
             tx.begin(); // 트랜잭션시작
             Member member = new Member();
-            member.setId(2L);  //PK value
+            member.setId(2L); // PK value
             member.setName("Hello");
             em.persist(member);
             tx.commit();

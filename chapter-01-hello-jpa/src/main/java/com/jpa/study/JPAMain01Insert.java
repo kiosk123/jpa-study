@@ -5,6 +5,9 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
+/**
+ * INSERT
+ */
 public class JPAMain01Insert {
 
     public static void main(String[] args) {

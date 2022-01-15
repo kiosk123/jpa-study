@@ -5,6 +5,9 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
+/**
+ * UPDATE
+ */
 public class JPAMain03Modify {
 
     public static void main(String[] args) {
