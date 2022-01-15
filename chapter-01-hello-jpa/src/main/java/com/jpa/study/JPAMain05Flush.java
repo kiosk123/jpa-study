@@ -25,7 +25,6 @@ public class JPAMain05Flush {
             // commit() 호출시 디비에 쿼리가 반영되는 것이 아닌 바로 디비에 반영됨
             em.flush();
 
-            System.out.println("====================================");
             tx.commit();
         } catch (Exception e) {
             tx.rollback();
@@ -33,6 +32,5 @@ public class JPAMain05Flush {
             em.close();
         }
         emf.close();
-
     }
 }

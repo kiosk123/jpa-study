@@ -5,6 +5,9 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  * DETACH
  */
@@ -24,7 +27,6 @@ public class JPAMain06Detach {
             
             // em.clear(); // 영속성 컨텍스트를 통으로 날려(1차캐시) 조회한 엔티티를 준영속 상태가 됨
             // member = em.merge(member); // 준영속 상태를 다시 영속 상태로 변경 
-            System.out.println("result : " + em.contains(member));
             tx.commit();
         } catch (Exception e) {
             tx.rollback();
