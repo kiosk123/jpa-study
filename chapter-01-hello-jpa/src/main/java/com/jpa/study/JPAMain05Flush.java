@@ -5,9 +5,6 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 public class JPAMain05Flush {
 
     public static void main(String[] args) {
@@ -24,7 +21,7 @@ public class JPAMain05Flush {
 
             // commit() 호출시 디비에 쿼리가 반영되는 것이 아닌 바로 디비에 반영됨
             em.flush();
-
+     
             tx.commit();
         } catch (Exception e) {
             tx.rollback();
