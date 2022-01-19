@@ -120,11 +120,13 @@ public class Member {
 
 ## 예제코드 위치
 src/main/java/com/jpa/study  
-- insert
-- delete
-- modify
-- flush
-- detach : 준영속 상태
+- Insert
+- Delete
+- Modify
+- Flush
+- JPQL
+- Detach : 준영속 상태
+- ErrorHandling
 ```java
 em.detach(entity) // 특정 엔티티만 준영속 상태로 전환
 
