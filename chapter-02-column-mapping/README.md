@@ -46,8 +46,9 @@ public class Member {
     private Long id;
     
     /* *
-     * insertable updatable JPA 상에서 데이터 삽입과 변경 가능여부 , 
-     * nullable null 허용여부 (DDL, DML 반영)
+     * name : 실제 매핑될 DB 컬럼이름
+     * insertable, updatable: JPA 상에서 데이터 삽입과 변경 가능여부 , 
+     * nullable: null 허용여부 (DDL, DML 반영)
      * unique 제약 조건 걸기 -> 잘 쓰지 않음 하이버네이트가 제약조건 명을 랜덤으로 생상하기 때문
      * 일반적으로 클래스에 설정하는 @Table을 활용헤서 unique 제약조건 설정
      * ex) @Table(uniqueConstraints = {@UniqueConstraint(name = "NAME_UNIQUE", 
@@ -78,7 +79,8 @@ public class Member {
     @Temporal(TemporalType.TIMESTAMP)
     private Date createdDate; //하이버네이트 최신 버전은 LocalDate, LocalDateTime 사용가능
     
-    @Temporal(TemporalType.TIMESTAMP)
+    /* 시간 매핑 타입은 DATE, TIME, TIMESTAMP가 있음 */
+    @Temporal(TemporalType.TIMESTAMP) 
     private Date lastModifiedDate;
     
     @Lob
