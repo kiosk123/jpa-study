@@ -89,7 +89,10 @@ public class Member {
     @Lob
     private String description;
     
-    @Transient //엔티티 매핑대상에서 제외되는 필드에 사용
+    /**
+     * 엔티티 매핑대상에서 제외되는 필드에 사용
+     */
+    @Transient 
     private int temp;
     
     public Member() {}
