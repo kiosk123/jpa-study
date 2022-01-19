@@ -84,7 +84,7 @@ subprojects {
 ```
 
 ## 챕터
-1. hello-jpa 프로젝트 생성과 jpa 예제  
+1. 프로젝트 생성과 기본적인 CRUD(JPQL포함)와 플러시, 준영속, 에러처리 
 
 
 

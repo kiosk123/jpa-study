@@ -1,4 +1,4 @@
-# 1. hello-jpa
+# 1. 프로젝트 생성과 기본적인 CRUD(JPQL포함)와 플러시, 준영속, 에러처리 
 
 ## 테스트를 위한 DB 생성
 ```sql
@@ -125,6 +125,13 @@ src/main/java/com/jpa/study
 - modify
 - flush
 - detach : 준영속 상태
+```java
+em.detach(entity) // 특정 엔티티만 준영속 상태로 전환
+
+em.clear() // 영속성 컨텍스트(1차캐시) 초기화
+
+em.close() // 영속성 컨텍스트 종료
+```
 - error handling
 
 ## 주의점
