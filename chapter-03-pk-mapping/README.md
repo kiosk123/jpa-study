@@ -48,7 +48,7 @@ public class Member {
     //...
 ```
 
-- Table : 키 생성용 테이블 사용, 모든 DB에서 사용한다. 성능이슈가 있다(다른 전략에 비해 느림)
+- Table : 키 생성용 테이블 사용하여 시퀀스 전략을 흉내, 모든 DB에서 사용한다. 성능이슈가 있다(다른 전략에 비해 느림)
 ```sql
 -- 키 생성용 테이블
 create table MY_SEQUENCES (
