@@ -64,6 +64,8 @@ Entity
                 table = "MY_SEQUENCES",
                 pkColumnName = "sequence_name",
                 pkColumnValue = "MEMBER_SEQ", //sequence_name 컬럼에 들어갈 테이블 전략 식별값
+
+                // 기본값 50
                 allocationSize = 1) 
 public class Member {
     @Id 
