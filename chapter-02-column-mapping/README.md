@@ -77,7 +77,7 @@ public class Member {
     private RoleType roleType;
     
     @Temporal(TemporalType.TIMESTAMP)
-    private Date createdDate; //하이버네이트 최신 버전은 LocalDate, LocalDateTime 사용가능
+    private Date createdDate; //하이버네이트 최신 버전은 LocalDate, LocalDateTime 사용가능 - @Temporal 생략가능
     
     @Temporal(TemporalType.TIMESTAMP)
     private Date lastModifiedDate;
