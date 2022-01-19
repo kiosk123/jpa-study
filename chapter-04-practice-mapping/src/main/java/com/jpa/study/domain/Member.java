@@ -57,6 +57,4 @@ public class Member {
     public void setZipcode(String zipcode) {
         this.zipcode = zipcode;
     }
-    
-    
 }
