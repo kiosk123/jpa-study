@@ -7,6 +7,7 @@
     - 기본생성자 필수(접근제한자public, protected)
     - final 클래스, enum, interface, inner 클래스에 사용하지 않는다
     - 저장할 필드에 final 키워드를 사용하지 않는다.
+    - `@Entity(name="엔티티명")` name 속성은 
   - @Table
     - 엔티티와 실제 매핑할 테이블명을 매핑한다 - (@Entity 클래스 이름이 실제 테이블명과 암시적 룰에 의해 일치하면 사용하지 않아도 됨)
     ```java
@@ -16,6 +17,11 @@
         //..
     }
     ```
+    - `@Table(name="", catalog="", schema="", uniqueConstraints="")` 속성을 쓸 수 있다.
+      - name : 매핑할 테이블 명(기본값 : 엔티티명)
+      - catalog : 테이터베이스 catalog 매핑
+      - schema : 데이터베이스 schema 매핑
+      - uniqueConstraints : DDL 생성 시에 유니크 제약 조건 생성
 - 필드와 컬럼 매핑: @Column
 - 기본 키 매핑: @Id
 - 연관관계 매핑 : @ManyToOne, @JoinColumn
