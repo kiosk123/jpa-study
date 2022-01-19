@@ -131,6 +131,8 @@ em.detach(entity) // 특정 엔티티만 준영속 상태로 전환
 em.clear() // 영속성 컨텍스트(1차캐시) 초기화
 
 em.close() // 영속성 컨텍스트 종료
+
+entity = em.merge(entity); // 준영속 상태를 다시 영속 상태로 변경 
 ```
 - error handling
 
