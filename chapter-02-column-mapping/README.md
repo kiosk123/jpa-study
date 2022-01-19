@@ -60,7 +60,7 @@ public class Member {
     private String name;
  
     /**
-     * BigDecimal과 같은 큰 숫자타입의 경우에
+     * BigDecimal(BigInteger)과 같은 큰 숫자타입의 경우에 사용
      * precision : 소수점 포함 전체 숫자 길이 설정 (DDL)
      * scale : 소수의 자리수 설정 (DDL)
      * 다만 double, float에 적용되지 않는다.
