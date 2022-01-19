@@ -154,7 +154,4 @@ public class Member {
         this.temp = temp;
     }
 }
-
-
-
 ```
