@@ -18,7 +18,7 @@ public class JPQLMain01 {
         EntityManager em = emf.createEntityManager();
         EntityTransaction tx = em.getTransaction();
         
-        // em.setFlushMode(FlushModeType.AUTO); // 커밋이나 쿼리를 실행할때 플러시 기본값
+        // em.setFlushMode(FlushModeType.AUTO);   // 커밋이나 쿼리를 실행할때 플러시 기본값
         // em.setFlushMode(FlushModeType.COMMIT); // 커밋시 플러시
         try {
             tx.begin();
