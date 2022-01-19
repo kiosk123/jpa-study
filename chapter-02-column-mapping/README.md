@@ -82,6 +82,10 @@ public class Member {
     @Temporal(TemporalType.TIMESTAMP)
     private Date lastModifiedDate;
     
+    /**
+     * @Lob과 매핑되는 필드 타입이 String, char[], java.sql.CLOB등.. 이면 CLOB과 매핑
+     * @Lob과 매핑되는 필드 타입이 byte[], java.sql.BLOB등.. 이면 BLOB과 매핑 
+     */
     @Lob
     private String description;
     
