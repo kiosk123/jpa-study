@@ -1,7 +1,21 @@
 # 2. 엔티티 매핑 - 컬럼 매핑
 
 ## 엔티티 매핑 소개
-- 객체와 테이블 매핑 : @Entity, @Table
+- 객체와 테이블 매핑 
+  - @Entity : JPA를 사용해서 테이블과 매핑할 클래스에 붙인다
+    - 기본적인 엔티티명은 클래스명이다
+    - 기본생성자 필수(접근제한자public, protected)
+    - final 클래스, enum, interface, inner 클래스에 사용하지 않는다
+    - 저장할 필드에 final 키워드를 사용하지 않는다.
+  - @Table
+    - 엔티티와 실제 매핑할 테이블명을 매핑한다 - (@Entity 클래스 이름이 실제 테이블명과 암시적 룰에 의해 일치하면 사용하지 않아도 됨)
+    ```java
+    @Table("MEMBER")
+    @Entity
+    class Member {
+        //..
+    }
+    ```
 - 필드와 컬럼 매핑: @Column
 - 기본 키 매핑: @Id
 - 연관관계 매핑 : @ManyToOne, @JoinColumn
