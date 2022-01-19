@@ -32,6 +32,7 @@ import javax.persistence.Transient;
                 table = "MY_SEQUENCES",
                 pkColumnName = "sequence_name",
                 pkColumnValue = "MEMBER_SEQ",
+                initialValue = 1,
                 allocationSize = 1) 
 public class Member2 {
     @Id 

@@ -13,7 +13,7 @@ public class Member {
 - IDENTITY : 기본키 생성을 디비(MySQL, PostgreSQL, SQL Sever, DB2)에 위임  
   (ex:mysql auto increment) JPA는 보통 트랜잭션 커밋 시점에 INSERT SQL을 실행하지만  
   AUTO INCREMENT는 데이터베이스에 INSERT SQL을 실행한 후에 ID값을 알수 있기 때문에  
-  **이전략을 사용할 경우 em.persist() 시점에 즉시 INSERT SQL을 실행**하고 DB에서 식별자를 조회한다
+  <span style="color: cyan">이전략을 사용할 경우 em.persist() 시점에 즉시 INSERT SQL을 실행</span>하고 DB에서 식별자를 조회한다
 ```java
 @Entity
 public class Member {
@@ -64,7 +64,7 @@ Entity
                 table = "MY_SEQUENCES",
                 pkColumnName = "sequence_name",
                 pkColumnValue = "MEMBER_SEQ", //sequence_name 컬럼에 들어갈 테이블 전략 식별값
-
+                initialValue = 1,
                 // 기본값 50
                 allocationSize = 1) 
 public class Member {
