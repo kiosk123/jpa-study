@@ -22,6 +22,15 @@
       - catalog : 테이터베이스 catalog 매핑
       - schema : 데이터베이스 schema 매핑
       - uniqueConstraints : DDL 생성 시에 유니크 제약 조건 생성
+      - 인덱스 매핑 : DDL 모드로 설정시 인덱스 정보로 인덱스를 생성한다. DDL모드가 아니더라도 인덱스가 있으면 적어줌으로써 JPQL 사용시 쿼리최적화에 도움을 줄수 있다  
+        참고 링크 - [https://youngwonhan-family.tistory.com/86](https://youngwonhan-family.tistory.com/86)
+        ```java
+        @Table(indexes = @Index(name = "idx_member", columnList = "name, age"))
+        @Entity
+        class Member {
+            //..
+        }
+        ```
 - 필드와 컬럼 매핑: @Column
 - 기본 키 매핑: @Id
 - 연관관계 매핑 : @ManyToOne, @JoinColumn
