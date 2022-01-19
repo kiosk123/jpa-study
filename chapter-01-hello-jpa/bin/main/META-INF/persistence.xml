@@ -39,7 +39,7 @@
 			    2. 테스트 서버는 update 또는 validate
 			    3. 스테이징과 운영 서버는 validate 또는 none
 			 -->
-			<property name="hibernate.hbm2ddl.auto" value="create" /> 
+			<property name="hibernate.hbm2ddl.auto" value="update" /> 
 		</properties>
 
 	</persistence-unit>

@@ -27,6 +27,7 @@ public class JPQLMain01 {
                         .setFirstResult(5) // 조회된 데이터의 6번째 라인부터
                         .setMaxResults(8)  // 최대 8개까지 데이터를 조회한다.
                         .getResultList();
+
             tx.commit();
         } catch (Exception e) {
             tx.rollback();
