@@ -132,7 +132,7 @@ JPA에서 엔티티는 양방향 매핑이 가능하다.
 <span style="color:blue; fontweight:bold;">연관관계의 주인이 아닌쪽은 읽기만 가능</span>하다.  
 <span style="color:red; fontweight:bold;">주인은 mappedBy 속성을 사용하지 않는다.</span>  
 <span style="color:green; fontweight:bold;">주인이 아니면 mappedBy 속성으로 주인 지정</span>을 한다.  
-주로 <span style="color:red; fontweight:bold;">주인은 외래키가 있는 곳을 주인</span>으로 정해야한다.  
+주로 <span style="color:red; fontweight:bold;">주인은 외래키가 있는 곳을 (다 대 일에서 '다'에 해당하는 부분) 주인</span>으로 정해야한다.  
 ### 양방향 매핑
 현재 코드 상에서는 객체 상에서 멤버에서 팀은 조회할 수 있으나 팀에서는 팀에 어떤 멤버가 있는지 알 수 없다.  
 그래서 팀에서 멤버를 참조하기 위한 `List`를 추가 하고 `@OneToMany`를 `List`에 붙인다.  
