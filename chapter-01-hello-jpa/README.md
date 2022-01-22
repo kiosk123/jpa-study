@@ -121,12 +121,150 @@ public class Member {
 ## 예제코드 위치
 src/main/java/com/jpa/study  
 - Insert
+```java
+public class Insert {
+
+    public static void main(String[] args) {
+        //하나의 EntityManagerFactory는 여러개의 EntityManager를 생성하는 역할
+        //애플리케이션 로딩시점에 딱하나만 생성
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("hello");
+        
+        //트랜잭션당 하나씩 생성
+        //EntityManager는 쓰레드간 공유 X
+        EntityManager em = emf.createEntityManager();
+        EntityTransaction tx = em.getTransaction();
+        tx.begin(); // 트랜잭션시작
+
+        Member member = new Member();
+        member.setId(1L);  //PK value
+        member.setName("Hello");
+        
+        em.persist(member);
+        tx.commit();
+        
+        em.close();
+        emf.close();
+    }
+
+}
+```
 - Delete
-- Modify
+```java
+public class Delete {
+
+    public static void main(String[] args) {
+        
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("hello");
+        
+        //트랜잭션당 하나씩 생성
+        EntityManager em = emf.createEntityManager();
+        EntityTransaction tx = em.getTransaction();
+        try {
+            tx.begin(); // 트랜잭션시작
+            Member member = em.find(Member.class, 1L);
+            em.remove(member);
+            tx.commit();
+        } catch (Exception e) {
+            tx.rollback();
+        } finally {
+            em.close();
+        }
+        emf.close();
+
+    }
+
+}
+```
+- Modify (Update)
+```java
+public class Modify {
+
+    public static void main(String[] args) {
+        
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("hello");
+        
+        //트랜잭션당 하나씩 생성
+        EntityManager em = emf.createEntityManager();
+        EntityTransaction tx = em.getTransaction();
+        try {
+            tx.begin(); // 트랜잭션시작
+            Member member = em.find(Member.class, 1L);
+            member.setName("Puppy");
+            tx.commit();
+        } catch (Exception e) {
+            tx.rollback();
+        } finally {
+            em.close();
+        }
+        emf.close();
+
+    }
+
+}
+```
 - Flush
+```java
+public class Flush {
+
+    public static void main(String[] args) {
+
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("hello");
+
+        // 트랜잭션당 하나씩 생성
+        EntityManager em = emf.createEntityManager();
+        EntityTransaction tx = em.getTransaction();
+        try {
+            tx.begin(); // 트랜잭션시작
+            Member member = em.find(Member.class, 1L);
+            member.setName("Hello");
+
+            // commit() 호출시 디비에 쿼리가 반영되는 것이 아닌 바로 디비에 반영됨
+            em.flush();
+     
+            tx.commit();
+        } catch (Exception e) {
+            tx.rollback();
+        } finally {
+            em.close();
+        }
+        emf.close();
+    }
+}
+```
 - JPQL
+```java
+public class JPQL {
+    
+    public static void main(String[] args) {
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("hello");
+        List<Member> members = new ArrayList<Member>();
+        
+        //트랜잭션당 하나씩 생성
+        EntityManager em = emf.createEntityManager();
+        EntityTransaction tx = em.getTransaction();
+        
+        // em.setFlushMode(FlushModeType.AUTO);   // 커밋이나 쿼리를 실행할때 플러시 기본값
+        // em.setFlushMode(FlushModeType.COMMIT); // 커밋시 플러시
+        try {
+            tx.begin();
+            //JPQL 대상은 테이블이 아닌 테이블과 매핑된 클래스임, JPQL은 기본적으로 내부적으로 무조건 flush()를 호출 후 쿼리실행
+            members = em.createQuery("select m from Member as m", Member.class)
+                        .setFirstResult(5) // 조회된 데이터의 6번째 라인부터
+                        .setMaxResults(8)  // 최대 8개까지 데이터를 조회한다.
+                        .getResultList();
+
+            tx.commit();
+        } catch (Exception e) {
+            tx.rollback();
+        } finally {
+            em.close();
+        }
+        emf.close();
+    }
+}
+```
+
 - Detach : 준영속 상태
-- ErrorHandling
 ```java
 em.detach(entity) // 특정 엔티티만 준영속 상태로 전환
 
@@ -137,6 +275,32 @@ em.close() // 영속성 컨텍스트 종료
 entity = em.merge(entity); // 준영속 상태를 다시 영속 상태로 변경 
 ```
 - error handling
+```java
+public class ErrorHandling {
+
+    public static void main(String[] args) {
+
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("hello");
+
+        // 트랜잭션당 하나씩 생성
+        EntityManager em = emf.createEntityManager();
+        EntityTransaction tx = em.getTransaction();
+        try {
+            tx.begin(); // 트랜잭션시작
+            Member member = new Member();
+            member.setId(2L); // PK value
+            member.setName("Hello");
+            em.persist(member);
+            tx.commit();
+        } catch (Exception e) {
+            tx.rollback();
+        } finally {
+            em.close();
+        }
+        emf.close();
+    }
+}
+```
 
 ## 주의점
 - 엔티티 매니저 팩토리는 하나만 생성해서 애플리케이션 전체에 공유
