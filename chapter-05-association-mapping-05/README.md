@@ -8,6 +8,8 @@
 <img src="./img/7.png">  
 
 ### 엔티티 매핑
+양방향 매핑시 연관관계 주인은 `@JoinColumn @JoinTable`이 들어가며 주인이 아닌 곳의 필드는 `mappedBy` 속성을 활용한다.
+
 **enum** **OrderStatus**   
 ```java
 public enum OrderStatus {
