@@ -11,7 +11,7 @@
 ### 다대일 매핑 예제
 하나 팀에는 여러 명의 멤버가 올 수 있다.
 
-<span style="color:cyan; font-weight:bold;">Member</span> 엔티티  
+**Member** 엔티티  
 
 Member 입장에서 Team을 바라볼때는 다대일 관계이다
 
@@ -57,7 +57,7 @@ public class Member {
 }
 ```
 
-<span style="color:cyan; font-weight:bold;">Team</span> 엔티티  
+**Team** 엔티티  
 팀 입장에서 멤버를 바라볼때는 일대다 관계이다.  
 양방향 매핑시 외래키가 있는 Member가 연관관계의 주인이 되기 때문에 `@OneToMany`로 매핑되어있는 `List`는 읽기만 가능  
 `em.flush()`를 호출하고 `em.find()`해서 다시 Team 객체를 가져오지 않는 한 메모리 상에서는 팀안에 매핑되어 있는 멤버 `List`에  
@@ -161,7 +161,7 @@ public class Main {
 
 ### 일대다 단방향 매핑 예제
 
-<span style="color:cyan; font-weight:bold;">Team</span> 엔티티  
+**Team** 엔티티  
 팀과 멤버는 일대다 관계다 여기서 연관관계 주인은 '일'에 해당하는 팀에 설정되어 있으므로 팀에 `@JoinColumn`을 사용한다.
 
 ```java
@@ -205,7 +205,7 @@ public class Team {
 }
 ```
 
-<span style="color:cyan; font-weight:bold;">Member</span> 엔티티  
+**Member** 엔티티  
 
 ```java
 @Entity
@@ -241,7 +241,7 @@ public class Member {
 }
 ```
 
-<span style="color:cyan; font-weight:bold;">실행</span> 엔티티  
+**실행** 엔티티  
 
 ```java
 public class Main {
@@ -278,7 +278,7 @@ public class Main {
 
 ### 일대다 양방향 매핑 예제
 
-<span style="color:cyan; font-weight:bold;">Team</span> 엔티티  
+**Team** 엔티티  
 팀과 멤버는 일대다 관계다 여기서 연관관계 주인은 '일'에 해당하는 팀에 설정되어 있으므로 팀에 `@JoinColumn`을 사용한다.  
 마찬가지로 '다'에 해당하는 멤버 엔티티에도 팀을 참조하는 객체에도 `@JoinColumn`을 사용하는데 연관관계 주인은 멤버가 아닌 팀이므로  
 멤버에서 참조하는 팀은 insert, update는 막고 읽기만 해야한다.  
@@ -325,7 +325,7 @@ public class Team {
 }
 ```
 
-<span style="color:cyan; font-weight:bold;">Member</span> 엔티티  
+**Member** 엔티티  
 
 ```java
 @Entity
@@ -376,7 +376,7 @@ public class Member {
 
 ### 주 테이블에 외래키 단방향
 
-<span style="color:cyan; font-weight:bold;">Locker</span> 엔티티
+**Locker** 엔티티
 
 ```java
 @Entity
@@ -390,7 +390,7 @@ class Locker {
     // getter setter 생략
 }
 ```
-<span style="color:cyan; font-weight:bold;">Member</span> 엔티티
+**Member** 엔티티
 
 ```java
 /**
@@ -415,7 +415,7 @@ public class Member {
 
 ### 주 테이블에 외래키 양방향
 
-<span style="color:cyan; font-weight:bold;">Locker</span> 엔티티
+**Locker** 엔티티
 
 ```java
 @Entity
@@ -432,7 +432,7 @@ class Locker {
     // getter setter 생략
 }
 ```
-<span style="color:cyan; font-weight:bold;">Member</span> 엔티티
+**Member** 엔티티
 
 ```java
 /**
@@ -457,7 +457,7 @@ public class Member {
 
 ### 대상 테이블에 외래키 양방향
 
-<span style="color:cyan; font-weight:bold;">Locker</span> 엔티티
+**Locker** 엔티티
 
 ```java
 @Entity
@@ -475,7 +475,7 @@ class Locker {
     // getter setter 생략
 }
 ```
-<span style="color:cyan; font-weight:bold;">Member</span> 엔티티
+**Member** 엔티티
 
 ```java
 /**

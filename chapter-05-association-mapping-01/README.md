@@ -11,9 +11,9 @@
 
 ### 시나리오에 따른 엔티티 매핑
 
-<span style="color:cyan; fontweight:bold;">Member 엔티티</span>  
+**Member 엔티티**  
 `@ManyToOne`과 `@JoinColumn`을 이용하여 다대일 관계에서 '다'에 해당하는 엔티티에서 조인에 사용되는 '일'에 해당하는 객체에 붙여준다  
-`@JoinColumn`에 사용하는 컬럼 명은 조인에 사용되는 자신 테이블의 <span style="color:blue; fontweight:bold;">외래키가 설정된 컬럼 명이다.</span> 예제 기준으로는 Member 테이블의 TEAM_ID이다.  
+`@JoinColumn`에 사용하는 컬럼 명은 조인에 사용되는 자신 테이블의 **외래키가 설정된 컬럼 명이다.** 예제 기준으로는 Member 테이블의 TEAM_ID이다.  
   
 그러면 Team의 PK필드와 Member 외래키 필드가 아래와 같이 코딩만 해주면 연관관계를 맺어주게 된다.
 
@@ -59,7 +59,7 @@ public class Member {
 }
 ```
 
-<span style="color:cyan; fontweight:bold;">Team 엔티티</span>
+**Team 엔티티**
 
 ```java
 @Entity
@@ -126,13 +126,13 @@ public class Team {
 ## 양방향 연관관계와 연관관계의 주인
 
 JPA에서 엔티티는 양방향 매핑이 가능하다.  
-<span style="color:red; fontweight:bold;">대체적으로 객체 매핑은 단방향으로 하는 걸 권장</span>한다.(양방향이면 신경쓸게 많음)  
+**체적으로 객체 매핑은 단방향으로 하는 걸 권장**한다.(양방향이면 신경쓸게 많음)  
 
-<span style="color:red; fontweight:bold;">연관관계의 주인만이 외래 키를 관리(등록, 수정)할 수 있다.</span>  
-<span style="color:blue; fontweight:bold;">연관관계의 주인이 아닌쪽은 읽기만 가능</span>하다.  
-<span style="color:red; fontweight:bold;">주인은 mappedBy 속성을 사용하지 않는다.</span>  
-<span style="color:green; fontweight:bold;">주인이 아니면 mappedBy 속성으로 주인 지정</span>을 한다.  
-주로 <span style="color:red; fontweight:bold;">주인은 외래키가 있는 곳을 (다 대 일에서 '다'에 해당하는 부분) 주인</span>으로 정해야한다.  
+**관관계의 주인만이 외래 키를 관리(등록, 수정)할 수 있다.**  
+**연관관계의 주인이 아닌쪽은 읽기만 가능**하다.  
+**인은 mappedBy 속성을 사용하지 않는다.**  
+**>주인이 아니면 mappedBy 속성으로 주인 지정**을 한다.  
+주로 **인은 외래키가 있는 곳을 (다 대 일에서 '다'에 해당하는 부분) 주인**으로 정해야한다.  
 ### 양방향 매핑
 현재 코드 상에서는 객체 상에서 멤버에서 팀은 조회할 수 있으나 팀에서는 팀에 어떤 멤버가 있는지 알 수 없다.  
 그래서 팀에서 멤버를 참조하기 위한 `List`를 추가 하고 `@OneToMany`를 `List`에 붙인다.  

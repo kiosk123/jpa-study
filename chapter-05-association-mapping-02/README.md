@@ -11,13 +11,13 @@
 
 ## 구현
 
-enum 인 <span style="color:cyan; font-weight:bold">OrderStutus</span> 
+enum 인 **OrderStutus** 
 ```java
 public enum OrderStatus {
     ORDER, CANCEL
 }
 ```
-<span style="color:cyan; font-weight:bold">Member</span> 엔티티  
+**Member** 엔티티  
 
 ```java
 @Entity
@@ -79,7 +79,7 @@ public class Member {
     }
 }
 ```
-<span style="color:cyan; font-weight:bold">Order</span> 엔티티  
+**Order** 엔티티  
 
 ```java
 @Entity
@@ -147,7 +147,7 @@ public class Order {
 }
 ```
 
-<span style="color:cyan; font-weight:bold">Item</span> 엔티티  
+**Item** 엔티티  
 
 ```java
 @Entity
@@ -189,7 +189,7 @@ public class Item {
 }
 ```
 
-<span style="color:cyan; font-weight:bold">OrderItem</span> 엔티티  
+**OrderItem** 엔티티  
 
 ```java
 @Entity

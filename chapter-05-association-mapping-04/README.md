@@ -9,7 +9,7 @@
 연관관계의 주인이 되는 엔티티는 `@ManyToMany와 @JoinTable`을 사용하고,  
 연관관계의 주인이 아닌 엔티티는 `@ManyToMany("mappedBy="참조프로퍼티명")`을 활용하여 처리
 
-<span style="color:cyan; font-weight:bold;">Member</span> 엔티티  
+**Member** 엔티티  
 
 ```java
 @Entity
@@ -53,7 +53,7 @@ public class Member {
     }
 }
 ```
-<span style="color:cyan; font-weight:bold;">Product</span> 엔티티 
+**Product** 엔티티 
 
 ```java
 @Entity

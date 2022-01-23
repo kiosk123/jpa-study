@@ -8,21 +8,21 @@
 <img src="./img/7.png">  
 
 ### 엔티티 매핑
-**enum** <span style="color:cyan; font-weight:bold;">OrderStatus</span>   
+**enum** **OrderStatus**   
 ```java
 public enum OrderStatus {
     ORDER, CANCEL
 }
 ```
 
-**enum** <span style="color:cyan; font-weight:bold;">DeliveryStatus</span>   
+**enum** **DeliveryStatus**   
 ```java
 public enum DeliveryStatus {
     READY, DELIIVERING, COMPLETE
 }
 ```
 
-<span style="color:cyan; font-weight:bold;">Member</span> 엔티티  
+**Member** 엔티티  
 
 ```java
 @Entity
@@ -68,7 +68,7 @@ public class Member {
     }
 }
 ```
-<span style="color:cyan; font-weight:bold;">Order</span> 엔티티  
+**Order** 엔티티  
 
 ```java
 @Entity
@@ -133,7 +133,7 @@ public class Order {
     }
 }
 ```
-<span style="color:cyan; font-weight:bold;">Delivery</span> 엔티티  
+**Delivery** 엔티티  
 
 ```java
 @Entity
@@ -183,7 +183,7 @@ public class Delivery {
     
 }
 ```
-<span style="color:cyan; font-weight:bold;">OrderItem</span> 엔티티  
+**OrderItem** 엔티티  
 
 ```java
 @Entity
@@ -236,7 +236,7 @@ public class OrderItem {
     }
 }
 ```
-<span style="color:cyan; font-weight:bold;">Item</span> 엔티티  
+**Item** 엔티티  
 
 ```java
 @Entity
@@ -284,7 +284,7 @@ public class Item {
     }
 }
 ```
-<span style="color:cyan; font-weight:bold;">Category</span> 엔티티  
+**Category** 엔티티  
 
 ```java
 @Entity
