@@ -361,3 +361,138 @@ public class Member {
     }
 }
 ```
+
+## 일대일
+<img src="./img/12.png">  
+<img src="./img/13.png">  
+<img src="./img/14.png">  
+<img src="./img/15.png">  
+<img src="./img/16.png">  
+<img src="./img/17.png">  
+<img src="./img/18.png">  
+<img src="./img/19.png">  
+<img src="./img/20.png">  
+<img src="./img/21.png">  
+
+### 주 테이블에 외래키 단방향
+
+<span style="color:cyan; font-weight:bold;">Locker</span> 엔티티
+
+```java
+@Entity
+class Locker {
+    @id @GeneratedValue
+    @Column(name = "LOCKER_ID")
+    private Long id
+
+    private String name
+
+    // getter setter 생략
+}
+```
+<span style="color:cyan; font-weight:bold;">Member</span> 엔티티
+
+```java
+/**
+ *  일대일 이므로 FK에 유니크 제약조건을 추가한다(객체에 설정될 것이 아니면 DB에 이미 걸려있야한다.)
+ */
+@Entity
+@Table(uniqueConstraints = {@UniqueConstraint(columnNames = {"LOCKER_ID"}, name = "MEMBER_UK")}) // 유니크 제약조건이 걸린 컬럼명과 유니크 제약조건 명
+public class Member {
+    
+    @Id @GeneratedValue
+    @Column(name = "MEMBER_ID")
+    private Long id;
+    
+    private String userName;
+    
+    @OneToOne 
+    @JoinColumn(name = "LOCKER_ID", foreignKey = @ForeignKey(name="MEMBER_FK")) // 조인에 사용되는 컬럼명과 외래키명
+    Locker locker;
+
+    // getter setter 생략
+```
+
+### 주 테이블에 외래키 양방향
+
+<span style="color:cyan; font-weight:bold;">Locker</span> 엔티티
+
+```java
+@Entity
+class Locker {
+    @id @GeneratedValue
+    @Column(name = "LOCKER_ID")
+    private Long id
+
+    private String name
+
+    @MappedBy(name = "locker")  // 양방향 매핑 - 외래키에 Member에 설정이며 Member가 주인이므로 Locker에서 Member는 읽기만 가능
+    private Member member
+
+    // getter setter 생략
+}
+```
+<span style="color:cyan; font-weight:bold;">Member</span> 엔티티
+
+```java
+/**
+ *  일대일 이므로 FK에 유니크 제약조건을 추가한다(객체에 설정될 것이 아니면 DB에 이미 걸려있야한다.)
+ */
+@Entity
+@Table(uniqueConstraints = {@UniqueConstraint(columnNames = {"LOCKER_ID"}, name = "MEMBER_UK")}) // 유니크 제약조건이 걸린 컬럼명과 유니크 제약조건 명
+public class Member {
+    
+    @Id @GeneratedValue
+    @Column(name = "MEMBER_ID")
+    private Long id;
+    
+    private String userName;
+    
+    @OneToOne 
+    @JoinColumn(name = "LOCKER_ID", foreignKey = @ForeignKey(name="MEMBER_FK")) // 조인에 사용되는 컬럼명과 외래키명
+    Locker locker;
+
+    // getter setter 생략
+```
+
+### 대상 테이블에 외래키 양방향
+
+<span style="color:cyan; font-weight:bold;">Locker</span> 엔티티
+
+```java
+@Entity
+@Table(uniqueConstraints = {@UniqueConstraint(columnNames = {"MEMBER_ID"}, name = "LOCKER_UK")}) // 유니크 제약조건이 걸린 컬럼명과 유니크 제약조건 명
+class Locker {
+    @id @GeneratedValue
+    @Column(name = "LOCKER_ID")
+    private Long id
+
+    private String name
+
+    @JoinColumn(name = "MEMBER_ID", foreignKey = @ForeignKey(name="LOCKER_FK")) // 조인에 사용되는 컬럼명과 외래키명
+    private Member member
+
+    // getter setter 생략
+}
+```
+<span style="color:cyan; font-weight:bold;">Member</span> 엔티티
+
+```java
+/**
+ *  일대일 이므로 FK에 유니크 제약조건을 추가한다(객체에 설정될 것이 아니면 DB에 이미 걸려있야한다.)
+ */
+@Entity
+public class Member {
+    
+    @Id @GeneratedValue
+    @Column(name = "MEMBER_ID")
+    private Long id;
+    
+    private String userName;
+
+    @MappedBy(name = "member")
+    private Locker locker
+
+    // getter setter 생략
+```
+
