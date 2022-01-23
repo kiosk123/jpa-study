@@ -25,7 +25,7 @@ public class Main {
 
             Member member = new Member();
             member.setName("member1");
-            member.setTeam(team);  // Member에 Team 연관관계 
+            // member.setTeam(team);  // Member에 Team 연관관계 
             em.persist(member);
 
             /** 객체간 연관관계를 연관관계 편의 메서드를 통해서 맺어줌 */
