@@ -13,7 +13,7 @@
 ```java
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)  // 상속관계 매핑 조인 전략 사용 설정
-@DiscriminatorColumn(name = "DTYPE")             // DB에서 상위 개념의 테이블로 사용되는 하위 개념의 테이블과 조인에 사용되는 컬럼명
+@DiscriminatorColumn(name = "DTYPE")             // DB에서 상위 개념의 테이블로 사용되는 하위 개념의 테이블과 조인에 사용되는 컬럼명 - name 속성을 지정하지 않으면 DTYPE 이름으로 매핑
 class Item {
     @id @GeneratedValue
     @Column(name = "ITEM_ID")
