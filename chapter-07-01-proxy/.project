@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>chapter-07-proxy</name>
+	<name>chapter-07-01-proxy</name>
 	<comment>Project chapter-07-proxy created by Buildship.</comment>
 	<projects>
 	</projects>
@@ -22,7 +22,7 @@
 	</natures>
 	<filteredResources>
 		<filter>
-			<id>1624063433438</id>
+			<id>0</id>
 			<name></name>
 			<type>30</type>
 			<matcher>

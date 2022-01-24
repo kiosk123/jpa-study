@@ -30,7 +30,7 @@ public class LazyInitailizationExceptionMain {
             System.out.println("=====================");
             
             System.out.println("type : " + refMember.getClass().getName()); //하이버네이트 가짜 엔티티(프록시)조회
-            System.out.println("is member's instance? : " + (refMember instanceof Member));
+            System.out.println("is member's instance? : " + (refMember instanceof Member)); // true
             System.out.println("id : " + refMember.getId());
             
             em.detach(refMember); //refMember 준영속
