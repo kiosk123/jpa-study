@@ -11,7 +11,7 @@ import javax.persistence.MappedSuperclass;
  *
  */
 @MappedSuperclass //매핑정보만 받는 슈퍼클래스
-public class BaseEntity {
+public abstract class BaseEntity {
     private String createBy;
     private LocalDateTime createTime;
     private String lastModified;
