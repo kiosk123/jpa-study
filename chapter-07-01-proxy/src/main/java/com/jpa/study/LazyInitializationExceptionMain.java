@@ -8,7 +8,7 @@ import javax.persistence.Persistence;
 import com.jpa.study.domain.Member;
 import com.jpa.study.domain.Team;
 
-public class LazyInitailizationExceptionMain {
+public class LazyInitializationExceptionMain {
 
   public static void main(String[] args) {
         

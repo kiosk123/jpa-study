@@ -89,9 +89,9 @@ public class JPAMain {
 }
 ```
 
-## 프록시 LazyInitailizationException 발생하는 경우
+## 프록시 LazyInitializationException 발생하는 경우
 ```java
-public class LazyInitailizationExceptionMain {
+public class LazyInitializationExceptionMain {
 
   public static void main(String[] args) {
         
