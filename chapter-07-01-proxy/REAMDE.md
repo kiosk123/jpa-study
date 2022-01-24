@@ -9,7 +9,7 @@
 ![.](./img/7.png)  
 ![.](./img/8.png)  
 
-## 프록시 특징 코드
+## 프록시 테스트 코드
 ```java
 public class JPAMain {
 
