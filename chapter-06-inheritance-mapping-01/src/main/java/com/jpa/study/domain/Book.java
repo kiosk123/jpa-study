@@ -1,5 +1,6 @@
 package com.jpa.study.domain;
 
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
 /**
@@ -7,7 +8,7 @@ import javax.persistence.Entity;
  *
  */
 @Entity
-//@DiscriminatorValue("B") //@DiscriminatorValue를 안붙이면 기본은 엔티티명
+@DiscriminatorValue("B") //@DiscriminatorValue를 안붙이면 기본은 엔티티명
 public class Book extends Item {
     private String author;
     private String isbn;

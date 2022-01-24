@@ -4,6 +4,7 @@ JPA 정리
 * JPA 2.2
 * java 버전 11
 * 하이버 네이트 5.3.10
+* 테스트 데이터 베이스 h2 - [링크](http://www.h2database.com/html/main.html)
 
 # 프로젝트 구성시 참고사항
 1. Exception in thread "main" java.lang.NoClassDefFoundError: javax/xml/bind/JAXBException 해결  
@@ -92,10 +93,12 @@ subprojects {
 · 5-02. 실전예제2 - 연관관계 매핑  
 · 5-03. 다양한 연관관계 매핑 - 다대일, 일대다, 일대일  
 · 5-04. 다양한 연관관계 매핑 - 다대다  
-· 5-05. 다양한 연관관계 매핑 - 실전예제 및 연관관계 매핑 주요 애너테이션과 속성 설명   
-  
-  
-  
+· 5-05. 다양한 연관관계 매핑 - 실전예제 및 연관관계 매핑 주요 애너테이션과 속성 설명  
+· 6-01. 상속관계 매핑 - 상속관계 매핑전략, 주요 어노테이션, 상속관계 매핑 - 조인전략  
+· 6-02. 상속관계 매핑 - 단일 테이블 전략  
+· 6-03. 상속관계 매핑 - 구현 클래스마다 테이블 전략  
+· 6-04. 상속관계 매핑 - 공통 매핑 정보를 상위 클래스로 빼기 `@MappedSuperclass`  
+· 6-05. 상속관계 매핑 - 실전예제  
 
 ## 참고
  - CustomSqlFunction 호출 방법 - 챕터 13 CustomH2Dialect.java 참고
