@@ -33,7 +33,7 @@ public class JPAMain {
             em.clear(); // 1차캐시 날림
 
             /**
-             * getReference DB에서 조회하는 것이 아닌 1차적으로 프록시 객체 호출1차 캐시에 있다면 실제 엔티티를 반환)
+             * getReference DB에서 조회하는 것이 아닌 1차적으로 프록시 객체 호출, 1차 캐시에 있다면 실제 엔티티를 반환)
              * 타입 체크시 주의 == 대신에 instanceof를 사용!!!
              */
             Member findMember = em.getReference(Member.class, member.getId());
