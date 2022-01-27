@@ -238,14 +238,15 @@ public class JPAMain {
             
             Address oldAddress = findMember.getHomeAddress();
             
-            //값 타입은 새객체로 교체해주어야 한다.
+            // 값 타입은 새객체로 교체해주어야 한다.
             findMember.setHomeAddress(new Address("newcity", oldAddress.getStreet(), oldAddress.getZipcode()));
             
-            //값 타입 컬렉션도 immutable 해야하기 때문에 다음과 같이 해야한다.
+            // 값 타입 컬렉션도 immutable 해야하기 때문에 값을 변경하고 있으면 다음과 같이 해야한다.
             findMember.getFavoriteFoods().remove("치킨");
             findMember.getFavoriteFoods().add("한식");
             
-            //equals를 잘 구현되어 있어야됨
+            // 값 타입 컬렉션도 immutable 해야하기 때문에 값을 변경하고 있으면 다음과 같이 해야한다.
+            // equals를 잘 구현되어 있어야됨
             findMember.getAddressHistoryAddresses().remove(new Address("old1", "street", "zipcode"));
             findMember.getAddressHistoryAddresses().add(new Address("newCity1", "street", "zipcode"));
             
