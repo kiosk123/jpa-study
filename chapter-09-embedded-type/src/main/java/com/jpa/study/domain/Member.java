@@ -15,10 +15,15 @@ public class Member {
     private Long id;
     private String name;
     
-    @Embedded //임베디드 사용 필드에 설정
+    /**
+     * 임베디드 타입 사용 필드에 설정
+     */
+    @Embedded 
     private Period  period;
     
-    //같은 타입이 중복되어 사용될 경우 실제 테이블 매핑 컬럼과 어떻게 매칭될 껀지를 결정해야됨
+    /** 
+     * 같은 타입이 중복되어 사용될 경우 실제 테이블 매핑 컬럼과 어떻게 매칭될 껀지를 결정해야됨
+     */
     @Embedded
     @AttributeOverrides(value = {
             @AttributeOverride(name = "city",column = @Column(name = "HOME_CITY")),

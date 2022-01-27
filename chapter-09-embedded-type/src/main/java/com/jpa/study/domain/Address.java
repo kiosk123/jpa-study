@@ -2,7 +2,10 @@ package com.jpa.study.domain;
 
 import javax.persistence.Embeddable;
 
-@Embeddable //임베디드 타입 정의 클래스에 설정
+/**
+ * 임베디드 타입 정의 클래스에 설정
+ */
+@Embeddable
 public class Address {
     private String city;
     private String street;
@@ -40,6 +43,4 @@ public class Address {
     public void setZipcode(String zipcode) {
         this.zipcode = zipcode;
     }
-    
-    
 }

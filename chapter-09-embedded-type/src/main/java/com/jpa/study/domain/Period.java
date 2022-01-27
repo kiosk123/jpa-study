@@ -4,7 +4,10 @@ import java.time.LocalDateTime;
 
 import javax.persistence.Embeddable;
 
-@Embeddable //임베디드 타입 정의 클래스에 설정
+/**
+ *  임베디드 타입 정의 클래스에 설정
+ */
+@Embeddable
 public class Period {
     private LocalDateTime startDate;
     private LocalDateTime endDate;
