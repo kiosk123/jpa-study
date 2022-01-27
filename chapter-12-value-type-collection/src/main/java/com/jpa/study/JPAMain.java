@@ -8,9 +8,6 @@ import javax.persistence.Persistence;
 import com.jpa.study.domain.Address;
 import com.jpa.study.domain.Member;
 
-/*
- * 영속성 전이 테스트
- */
 public class JPAMain {
 
     public static void main(String[] args) {

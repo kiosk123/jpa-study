@@ -28,14 +28,14 @@ public class Member {
     @Embedded
     private Address homeAddress;
     
-    //지연로딩
-    @ElementCollection
+    // ElementCollection - 기본은 지연로딩
+    @ElementCollection 
     @CollectionTable(name = "FAVORITE_FOOD", 
                      joinColumns = {@JoinColumn(name = "MEMBER_ID")})
     @Column(name = "FOOD_NAME") //예외적으로 FAVORITE_FOOD에 FOOD_NAME 컬럼 생성
     private Set<String> favoriteFoods = new HashSet<>();
     
-    //지연로딩
+    // ElementCollection - 기본은 지연로딩
     @ElementCollection
     @CollectionTable(name = "ADDRESS", joinColumns = {@JoinColumn(name = "MEMBER_ID")})
     private List<Address> addressHistoryAddresses = new ArrayList<>();
