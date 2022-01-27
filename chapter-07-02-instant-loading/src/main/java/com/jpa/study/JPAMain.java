@@ -24,10 +24,10 @@ public class JPAMain {
             em.flush();
             em.clear();
             
-            Member findMember = em.find(Member.class, member.getId()); //Member가 속해있는 Team까지 즉시조회
+            Member findMember = em.find(Member.class, member.getId()); // Member가 속해있는 Team까지 즉시조회
             System.out.println("get Team information");
             Team team = findMember.getTeam();
-            System.out.println("is null : " + (team == null)); //false 이미 로딩 되었으므로 
+            System.out.println("is null : " + (team == null));  // false 이미 로딩 되었으므로 
             System.out.println("Team name : " + team.getName()); 
             
             tx.commit();

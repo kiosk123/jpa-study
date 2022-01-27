@@ -3,7 +3,44 @@
 ![.](./img/1.png)  
 ![.](./img/2.png)  
 ![.](./img/3.png)  
-![.](./img/4.png)  
+![.](./img/4.png)
+
+**Member** 엔티티
+```java
+@Entity
+public class Member {
+    
+    @Id @GeneratedValue
+    private Long id;
+    
+    @Column(name = "USERNAME")
+    private String name;
+    
+   //메서드 호출 시점에 디비에서 조회해서 가져옴 그전에는 프록시 객체가 대신 채움 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "TEAM_ID") 
+    private Team team;
+    
+    // 생략...
+```
+
+**Team** 엔티티
+```java
+@Entity
+public class Team {
+    @Id
+    @GeneratedValue
+    @Column(name = "TEAM_ID")
+    private Long id;
+    
+    private String name;
+   
+    // 메서드 호출 시점에 디비에서 조회해서 가져옴
+    @OneToMany(mappedBy = "team", fetch = FetchType.LAZY) 
+    private List<Member> members = new ArrayList<>(); //Null 포인터 방지
+
+    // 생략...
+```
 
 ```java
 public class JPAMain {
