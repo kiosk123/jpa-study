@@ -27,8 +27,13 @@ public class JPAMain {
             Member findMember = em.find(Member.class, member.getId()); //Team은 조회안하고 Member만 조회
             System.out.println("get Team information");
             Team team = findMember.getTeam();
-            System.out.println("type : " + team.getClass()); //프록시 객체가 대신 세팅됨
-            System.out.println("Team name : " + team.getName()); //실제 Team을 사용하는 시점에 초기화
+
+            /**
+             * type : class com.jpa.study.domain.Team$HibernateProxy$OwZMUvLS
+             * 프록시 객체가 대신 세팅됨
+             */
+            System.out.println("type : " + team.getClass()); 
+            System.out.println("Team name : " + team.getName()); //실제 Team엔티티의 메서드를 사용하는 시점에 초기화
             
             tx.commit();
         } catch (Exception e) {
