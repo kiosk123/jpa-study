@@ -105,6 +105,7 @@ subprojects {
 · 7-04. 프록시와 연관관계 관리 - 영속성 전이(CASCADE)와 고아객체  
 · 7-05. 프록시와 연관관계 관리 - 실전예제  
 · 8. 기본값 타입  
+· 9. 임베디드 타입(복합 값 타입)  
 
 ## 참고
  - CustomSqlFunction 호출 방법 - 챕터 13 CustomH2Dialect.java 참고
