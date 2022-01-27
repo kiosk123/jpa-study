@@ -11,9 +11,6 @@ import com.jpa.study.domain.Address;
 import com.jpa.study.domain.Member;
 import com.jpa.study.domain.Period;
 
-/*
- * 영속성 전이 테스트
- */
 public class JPAMain {
 
     public static void main(String[] args) {
