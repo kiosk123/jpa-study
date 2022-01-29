@@ -39,7 +39,7 @@ public class JPQLMain {
             query3.setParameter("id", member.getId()); //파라미터 반인딩
             
             /**
-             * 반환값이 여려개 일때, 없으면 빈 리스트 반환
+             * 반환값이 여러개 일때, 없으면 빈 리스트 반환
              */
             List<Member> members = query1.getResultList(); 
             
