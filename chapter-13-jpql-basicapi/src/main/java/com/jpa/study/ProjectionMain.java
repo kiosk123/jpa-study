@@ -26,9 +26,15 @@ public class ProjectionMain {
 
         try {
             tx.begin(); // 트랜잭션시작
+            Team team = new Team();
+            team.setName("team1");
+            em.persist(team);
+
             Member member = new Member();
             member.setName("member1");
             member.setAge(18);
+            member.setTeam(team); // 팀과 연관관계 맺어줌
+
             em.persist(member);
             em.flush();
             em.clear();
@@ -39,6 +45,21 @@ public class ProjectionMain {
             //JPQL 작성시 최대한 SQL 작성과 비슷하게 할 것 - 어떻게 데이터를 가져오는지 예측을 쉽게 하기 위해
             List<Team> teams = em.createQuery("select t from Member m inner join m.team t", Team.class)
                                  .getResultList();
+            System.out.println("===================== team ================================");
+            teams.forEach(t -> { 
+                String joiner = String.join(" ", String.valueOf(t.getId()), String.valueOf(t.getMembers().size()), t.getName());
+                System.out.println(joiner);
+            });
+
+            members = em.createQuery("select m from Member m inner join m.team", Member.class)
+                .getResultList();
+
+            System.out.println("===================== member ===============================");
+            members.forEach(m ->  {
+                String joiner = String.join(" ", String.valueOf(m.getId()), String.valueOf(m.getTeam()), m.getName(), String.valueOf(m.getAge()));
+                System.out.println(joiner);
+            });
+
             
             //임베디드 타입 프로젝션 - 임베디드 타입 프로젝션은 단독으로는 안되고 반드시 엔티티를 통해서 조회
             List<Address> addresses = em.createQuery("select o.address from Order o", Address.class)
