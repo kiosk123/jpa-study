@@ -58,11 +58,16 @@ public class BulkOperationMain {
             em.flush();
             em.clear();
             
+            /**
+             * 벌크 연산 처리 후 영속성 컨텍스트 초기화 후
+             * 조회 처리 할 것
+             */
             
             //update 벌크 쿼리 실행시 insert가 반영됨(flush 자동 호출)
             int resultCount = em.createQuery("update Member m set m.name = 'older' where m.age > 30")
                                 .executeUpdate();
             System.out.println("effected row : " + resultCount);
+            em.clear(); // 벌크 연산 후 영속성 컨텍스트 초기화
             
             em.createQuery("select distinct m.name from Member m", String.class)
               .getResultList()
@@ -72,7 +77,7 @@ public class BulkOperationMain {
             resultCount = em.createQuery("delete from Member m where m.name = 'older'")
                             .executeUpdate();
             System.out.println("deleted row : " + resultCount);
-            em.clear(); //벌크연산 처리 후 조회 해야됨 - 그리고 위에있는 객체(준영속) 재사용하지 말고 다시 조회해야함
+            em.clear(); // 벌크연산 처리 후 영속성 컨텍스트 초기화 - 그리고 위에있는 객체(준영속) 재사용하지 말고 다시 조회해야함
             
             teamA = em.find(Team.class, teamA.getId()); //DB에 반영된 내용을 다시 가져옴
             teamA.getMembers().forEach(m -> System.out.println("================= " + m.getName()));
