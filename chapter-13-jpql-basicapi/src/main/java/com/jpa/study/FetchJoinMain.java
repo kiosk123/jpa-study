@@ -53,8 +53,11 @@ public class FetchJoinMain {
             
             // Team에 속해있는 Member들 모두 조인하는 데 Member의 Team도 가져와서 설정함
             // fetch 조인시 on절 사용할 수 없음 where절 사용
-            em.createQuery("select m from Member m inner join fetch m.team ")
-              .getResultList();
+            em.createQuery("select m from Member m inner join fetch m.team ", Member.class)
+              .getResultList()
+              .forEach(m -> {
+                  System.out.println("member name : " + m.getName() + ", member age : " + m.getAge() + ", member team : " + m.getTeam());
+              });
             
             /**
              * 컬렉션 패치조인
