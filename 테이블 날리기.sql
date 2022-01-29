@@ -19,5 +19,7 @@ drop table if exists child cascade;
 drop table if exists address cascade;
 drop table if exists favorite_food cascade;
 drop table if exists parent_child cascade;
+drop sequence if exists HIBERNATE_SEQUENCE;
 
+commit;
 

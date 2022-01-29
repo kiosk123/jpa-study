@@ -45,9 +45,20 @@ public class ProjectionMain {
                     .getResultList();
             
             //1. 스칼라 값 쿼리 - Object[]에 값 담기
-            List<Object[]> scalas = em.createQuery("select distinct m.name, m.age from Member m")
+            List<Object[]> scalas = em.createQuery("select m.name, m.age from Member m")
                               .getResultList();
-            
+            System.out.println("==================== scalas ============================");
+            scalas.forEach(e -> {
+                String str = "";
+                for ( Object o : e) {
+                    str += o;
+                    str += " ";
+                }
+                str += "\n";
+                System.out.println(str);
+            });
+
+
             //2. 스칼라 값 쿼리 - DTO에 값 담기
             List<UserDTO> dtos = em.createQuery("select new com.jpa.study.dto.UserDTO(m.name, m.age) from Member m", UserDTO.class)
                                    .getResultList();

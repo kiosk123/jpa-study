@@ -28,6 +28,7 @@ public class JPQLMain {
             member.setName("member1");
             member.setAge(18);
             em.persist(member);
+            em.clear();
             
             /**
              * 기본 쿼리
