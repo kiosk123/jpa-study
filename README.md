@@ -118,3 +118,6 @@ subprojects {
     - 방언을 상속한 커스텀 클래스를 구한하고 클래스의 생성자에서 SQL함수를 registerFunction()을 호출하여 등록한다.
     - persistence.xml에서 방언을 상속한 커스텀 클래스의 패키지 명을 포함한 클래스명을 등록한다.
     - JPQL에서 function('호출할 sql함수명',sql함수파라미터1,sql함수파라미터2...) 형태로 사용한다.
+
+## 핵심
+ - 연관관계 애너테이션`@OneToOne @OneToMany @ManyToOne @ManyToMany`은 무조건 `Lazy`타입으로 발라 놓는다
