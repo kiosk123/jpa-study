@@ -109,6 +109,7 @@ subprojects {
 · 10. 값 타입과 불변 객체  
 · 11. 값 타입의 비교  
 · 12. 값 타입 컬렉션 및 값 타입 매핑 
+· 13. JPQL 객체 지향 쿼리 언어  
 
 ## 참고
  - CustomSqlFunction 호출 방법 - 챕터 13 CustomH2Dialect.java 참고
