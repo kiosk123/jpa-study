@@ -104,6 +104,8 @@ em.clear(); // 벌크연산 처리 후 영속성 컨텍스트 초기화 - 그리
 teamA = em.find(Team.class, teamA.getId()); // DB에 반영된 내용을 다시 가져옴
 teamA.getMembers().forEach(m -> System.out.println("================= " + m.getName()));
 ```
+Spring Data JPA 에서는 벌크연산시(CUD)시 Spring Data JPA에서 제공하는 애너테이션으로 영속성 컨텍스트를 초기화 해준다.  
+Spring Data JPA 에서 벌크 연산시 직접 `em.clear()`를 호출 할 일이 없음
 
 ## N + 1 문제 해결을 위한 설정
 fetch 조인을 사용하지 않고 Lazy로딩으로 설정된 일대다 양방향 매핑을 리스트를 가져올 때
