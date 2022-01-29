@@ -30,6 +30,7 @@ public class JDBCNativeQueryMain {
             em.persist(member);
             em.flush();
             em.clear();
+
             
             //네이티브 쿼리 시 1차캐시 먼저 플러시처리 후 네이티브 쿼리 실행
             Session session = em.unwrap(Session.class);
