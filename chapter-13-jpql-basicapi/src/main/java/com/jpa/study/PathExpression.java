@@ -57,6 +57,20 @@ public class PathExpression {
             }
             em.flush();
             em.clear();
+
+            // enum 사용 예
+            em.createQuery("select m.name, 'Hello', true From Member m " +
+                           "where m.memberType = com.jpa.study.domain.MemberType.USER", Object[].class)
+                           .getResultList()
+                           .forEach(o -> {
+                               String str = "username : ";
+                               str += o[0];
+                               str += ", message : ";
+                               str += o[1];
+                               str += ", boolean : ";
+                               str += o[2];
+                               System.out.println(str);
+                           });
             
             // 상태 필드 예
             em.createQuery("select m.name from Member m", String.class)
@@ -90,7 +104,7 @@ public class PathExpression {
                 .forEach(System.out::println);;
             
           
-            
+            tx.commit();
         } catch (Exception e) {
             e.printStackTrace();
             tx.rollback();
