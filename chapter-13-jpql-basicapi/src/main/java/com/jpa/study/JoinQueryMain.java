@@ -30,10 +30,16 @@ public class JoinQueryMain {
             TypedQuery<Member> query1 = em.createQuery("select m from Member m inner join m.team", Member.class);
             query1.getResultList();
             
+            
             //조인대상 필터링 on 절 활용
             em.createQuery("select m, t from Member m inner join m.team t on t.name = 'A'").getResultList();
             
-            
+            /**
+             * INNER JOIN 다른 방식
+             */
+            em.createQuery("select m.name, t.name from Member m join Team t on m.team = t.id").getResultList();
+
+
             /**
              * LEFT JOIN
              */
@@ -53,7 +59,6 @@ public class JoinQueryMain {
             query1.getResultList();
             
             em.createQuery("select m, t from Member m right join Team t on m.name = t.name").getResultList();
-            
             
             tx.commit();
         } catch (Exception e) {
